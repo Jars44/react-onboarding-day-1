@@ -5,9 +5,9 @@ import LearningCard from "./components/LearningCard";
 import "./App.css";
 
 const students = [
-  { name: "Andi Pratama", role: "Frontend Intern", avatar: "AP" },
-  { name: "Siti Nurhaliza", role: "Frontend Intern", avatar: "SN" },
-  { name: "Budi Santoso", role: "Frontend Intern", avatar: "BS" },
+  { name: "Bisma Purbawasesa", role: "Frontend Intern", avatar: "BP" },
+  { name: "Malik Fajar Al Amri", role: "Backend Intern", avatar: "MF" },
+  { name: "Zidan Rhaditya Ramadhan", role: "Backend Intern", avatar: "ZR" },
 ];
 
 const topics = [
