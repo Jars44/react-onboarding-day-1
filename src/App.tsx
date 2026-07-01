@@ -1,40 +1,63 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "./assets/vite.svg";
-import heroImg from "./assets/hero.png";
-import Greeting from "./components/Greeting";
+import Header from "./components/Header";
+import ProfileCard from "./components/ProfileCard";
+import LearningCard from "./components/LearningCard";
 import "./App.css";
 
+const students = [
+  { name: "Andi Pratama", role: "Frontend Intern", avatar: "AP" },
+  { name: "Siti Nurhaliza", role: "Frontend Intern", avatar: "SN" },
+  { name: "Budi Santoso", role: "Frontend Intern", avatar: "BS" },
+];
+
+const topics = [
+  "Apa itu React & SPA",
+  "JSX & Component",
+  "Props & State",
+  "Event Handling",
+  "Conditional Rendering",
+  "List Rendering & Key",
+];
+
 function App() {
-  const [count, setCount] = useState(0);
-  const [name, setName] = useState("");
+  const [showMateri, setShowMateri] = useState(false);
 
   return (
     <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-          <h1>Halo, React Developer!</h1>
-        </div>
+      <Header title="Intern Profile Dashboard" />
 
-        <button type="button" className="counter" onClick={() => setCount((count) => count + 1)}>
-          Count is {count}
-        </button>
-
-        <div className="input-area">
-          <label htmlFor="nameInput">Masukkan namamu:</label>
-          <input
-            id="nameInput"
-            type="text"
-            placeholder="Tulis namamu di sini..."
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-          <Greeting name={name} />
+      <section className="dashboard-section">
+        <h2>Daftar Siswa</h2>
+        <div className="profile-list">
+          {students.map((student, index) => (
+            <ProfileCard
+              key={index}
+              name={student.name}
+              role={student.role}
+              avatar={student.avatar}
+            />
+          ))}
         </div>
-        <p>Diatas ini adalah contoh dari state, props dan event handling yang ada di react</p>
+      </section>
+
+      <section className="dashboard-section">
+        <div className="section-header">
+          <h2>Materi yang Dipelajari</h2>
+          <button className="toggle-btn" onClick={() => setShowMateri(!showMateri)}>
+            {showMateri ? "Sembunyikan" : "Tampilkan"}
+          </button>
+        </div>
+        {showMateri && (
+          topics.length > 0 ? (
+            <ul className="learning-list">
+              {topics.map((topic, index) => (
+                <LearningCard key={index} topic={topic} />
+              ))}
+            </ul>
+          ) : (
+            <p className="empty-state">Data belum tersedia</p>
+          )
+        )}
       </section>
     </>
   );
