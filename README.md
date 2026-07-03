@@ -1,77 +1,116 @@
-# React + TypeScript + Vite
+# Intern Profile Dashboard — React Onboarding Hari ke-1 & 2
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Proyek ini adalah tugas **Hari ke-1 & 2** dari _Roadmap Onboarding React.js Fundamental_ untuk siswa magang frontend.
 
-Currently, two official plugins are available:
+**Fokus pembelajaran:** Component, props, TypeScript typing, list rendering, conditional rendering, dan event handling.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Prasyarat
 
-## React Compiler
+- [Node.js](https://nodejs.org) versi 18 atau lebih baru
+- Salah satu package manager: **npm**, **yarn**, **pnpm**, atau **bun**
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+## Instalasi
 
-Note: This will impact Vite dev & build performances.
+```bash
+# Menggunakan npm (default)
+npm install
 
-## Expanding the ESLint configuration
+# Atau menggunakan yarn
+yarn install
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+# Atau menggunakan pnpm
+pnpm install
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+# Atau menggunakan bun
+bun install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Menjalankan Aplikasi
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Mode Pengembangan
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+# npm
+npm run dev
 
+# yarn
+yarn dev
+
+# pnpm
+pnpm dev
+
+# bun
+bun run dev
 ```
+
+Akses aplikasi di `http://localhost:5173`.
+
+### Build Produksi
+
+```bash
+npm run build
+yarn build
+pnpm build
+bun run build
+```
+
+Hasil build tersedia di `dist/`.
+
+### Pratinjau Build
+
+```bash
+npm run preview
+yarn preview
+pnpm preview
+bun run preview
+```
+
+### Linting
+
+```bash
+npm run lint
+yarn lint
+pnpm lint
+bun run lint
+```
+
+## Struktur Proyek
+
+```text
+src/
+├── components/
+│   ├── Greeting.tsx        # Komponen sapaan
+│   ├── Header.tsx          # Menampilkan judul dashboard
+│   ├── LearningCard.tsx    # Card daftar materi pembelajaran
+│   └── ProfileCard.tsx     # Card profil siswa
+├── App.tsx                 # Komponen utama
+├── main.tsx                # Entry point aplikasi
+├── App.css                 # Gaya komponen App
+└── index.css               # Gaya global & tema
+```
+
+## Ringkasan Materi
+
+| Konsep                      | Penerapan di Proyek                              |
+| --------------------------- | ------------------------------------------------ |
+| **Function component**      | Header, ProfileCard, LearningCard                |
+| **Props & TypeScript type** | Setiap component menerima props bertipe          |
+| **List rendering & key**    | Data siswa & materi di-render dengan `.map()`    |
+| **Conditional rendering**   | Tampilkan/sembunyikan daftar materi, empty state |
+| **Event handling**          | Tombol toggle untuk menampilkan materi           |
+| **useState**                | State `showMateri` untuk mengontrol visibilitas  |
+
+## Tujuan Pembelajaran
+
+- [x] Membuat component terpisah (minimal 3)
+- [x] Menggunakan props dengan TypeScript type
+- [x] Menampilkan data dengan `.map()` dan `key`
+- [x] Memisahkan UI dari `App.tsx` ke component
+- [x] Penamaan component yang mudah dipahami
+
+## Teknologi
+
+- **React 19** — library untuk membangun antarmuka
+- **TypeScript 6** — JavaScript dengan tipe statis
+- **Vite 8** — build tool dan dev server
+- **React Compiler** — optimasi re-render otomatis
