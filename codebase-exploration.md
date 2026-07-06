@@ -155,11 +155,9 @@ Semua di-import via `app-foundation.css`.
 
 ## Catatan Kendala
 
-1. Wajib ada `.env.*` — API URL & Firebase config diperlukan sejak awal
-2. 5006 file `.icon.tsx` — memperlambat indexing editor & tree view
-3. Struktur folder 6-7 level karena clean architecture ketat per fitur
-4. Dokumentasi agent workflow (`.claude/` + `docs/`) sangat ekstensif
-5. Dual state pattern: Context+Zustand vs Zustand saja perlu dipahami per kasus
+1. Struktur folder 6-7 level karena clean architecture ketat per fitur
+2. Dokumentasi agent workflow (`.claude/` + `docs/`) sangat ekstensif
+3. Dual state pattern: Context+Zustand vs Zustand saja perlu dipahami per kasus
 
 ## Pertanyaan untuk Mentor
 
